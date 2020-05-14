@@ -41,7 +41,7 @@ steps:
         CMD="$CMD DEBUG=cypress:*"
       fi
       env:
-         ${{ if ne(variables['cypress_record_key'], '') }}: CYPRESS_RECORD_KEY: $(cypress_record_key)
+        CYPRESS_RECORD_KEY: $(cypress_record_key)
 
       VERIFY_CMD="$CMD ./node_modules/.bin/cypress verify"
       RUN_CMD="$CMD ./node_modules/.bin/cypress run --browser ${{ parameters.browserType }}"     
