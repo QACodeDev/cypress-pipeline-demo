@@ -43,7 +43,10 @@ steps:
 
       VERIFY_CMD="$CMD ./node_modules/.bin/cypress verify"
       RUN_CMD="$CMD ./node_modules/.bin/cypress run --browser ${{ parameters.browserType }}"
-
+      env:
+      ${{ if ne(variables['cypress_record_key'], '') }}:
+        CYPRESS_RECORD_KEY: $(cypress_record_key)
+      
       # Check if Cypress record information is provided
       if [ ! -z "$CYPRESS_RECORD_KEY" ]
       then
@@ -57,9 +60,7 @@ steps:
     env:
       TERM: xterm # Avoid terminal warnings
       VERBOSE: $(verbose)
-      BUILDID: $(Build.BuildId)
-      ${{ if ne(variables['cypress_record_key'], '') }}:
-        CYPRESS_RECORD_KEY: $(cypress_record_key)
+      BUILDID: $(Build.BuildId)      
   
   - task: PublishTestResults@2
     displayName: 'Publish the test reports'
@@ -73,7 +74,7 @@ steps:
     inputs:
       pathtoPublish: 'cypress/screenshots'
       artifactName: screenshots-${{ parameters.browserType }}
-    condition: failed()
+    condition: succeededOrFailed()
     continueOnError: true
 
   - task: PublishBuildArtifacts@1
