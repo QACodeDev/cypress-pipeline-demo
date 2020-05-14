@@ -39,9 +39,7 @@ steps:
       if [ "$VERBOSE" == "true" ]
       then
         CMD="$CMD DEBUG=cypress:*"
-      fi
-      env:
-        CYPRESS_RECORD_KEY: $(cypress_record_key)
+      fi        
 
       VERIFY_CMD="$CMD ./node_modules/.bin/cypress verify"
       RUN_CMD="$CMD ./node_modules/.bin/cypress run --browser ${{ parameters.browserType }}"     
@@ -59,7 +57,8 @@ steps:
     env:
       TERM: xterm # Avoid terminal warnings
       VERBOSE: $(verbose)
-      BUILDID: $(Build.BuildId)      
+      BUILDID: $(Build.BuildId)
+      CYPRESS_RECORD_KEY: $(cypress_record_key)
   
   - task: PublishTestResults@2
     displayName: 'Publish the test reports'
