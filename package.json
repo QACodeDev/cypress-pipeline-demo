@@ -1,0 +1,17 @@
+{
+  "name": "cypress-pipeline-demo",
+  "version": "1.0.0",
+  "description": "This is a poc project for cypress integration with azure pipeline",
+  "main": "index.js",
+  "scripts": {
+    "version": "cypress version",
+    "test": "cypress open",
+    "record": "cypress run"
+  },
+  "keywords": [],
+  "author": "Mohd Nazim",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^4.5.0"
+  }
+}
