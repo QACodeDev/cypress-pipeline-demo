@@ -32,6 +32,7 @@ steps:
     env:
       PASSWORD: $(password)
       BROWSER: ${{ parameters.browserType }}
+      CYPRESS_RECORD_KEY: $(cypress_record_key)
 
   - bash: |
       # Check if verbose mode needs to be turned on
@@ -42,10 +43,7 @@ steps:
       fi
 
       VERIFY_CMD="$CMD ./node_modules/.bin/cypress verify"
-      RUN_CMD="$CMD ./node_modules/.bin/cypress run --browser ${{ parameters.browserType }}"
-      env:
-      ${{ if ne(variables['cypress_record_key'], '') }}:
-        CYPRESS_RECORD_KEY: $(cypress_record_key)
+      RUN_CMD="$CMD ./node_modules/.bin/cypress run --browser ${{ parameters.browserType }}"     
       
       # Check if Cypress record information is provided
       if [ ! -z "$CYPRESS_RECORD_KEY" ]
