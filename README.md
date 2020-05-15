@@ -18,7 +18,18 @@ This is a project which you can use to start your E2E testing with Cypress by az
 
 In order to start using this project. You will have to do the following steps:
 
- Provide the `username`, `password`, and `baseUrl` in cypress.json and put other required test data.
+Provide the `username`, `password`, and `baseUrl` in cypress.json and put other required test data.
+ 
+ ## Azure DevOps setup
+Start by creating a new variable group on Azure DevOps. I use two, one for my DEV branch and one for my master branch. If you only want to use one branch or one environment, you can remove the dynamic grouping expression in the azure-pipelines.yml file.
+Add the following variables to the group:
+CI: true
+cypress_project_id: <cypress-project-id> - the ID of the project Cypress gave you.
+cypress_record_key: <cypress-record-key> - If you want to record to Cypress.io.
+verbose: true or false - Allows you to run the pipeline in verbose mode, and will add some extra logging. Cypress will also run in DEBUG mode by setting it to true.
+In the azure-pipelines.yml file, update the dynamic group name variables from vargroup-master and vargroup-dev to your corresponding group names. 
+
+![variable group](/variable_group.png)
 
 ## **Mulitple ways to execute the tests**:
 
@@ -52,6 +63,12 @@ In order to start using this project. You will have to do the following steps:
 
 ## Azure Pipeline
 * Got to build artifacts for screenshots and videos
+
+### Test Result
+
+* Go to tests tab under pipeline for test results
+
+![test result](/Tests_results.png)
 
 ## Supported browsers
 
