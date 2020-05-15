@@ -1,11 +1,12 @@
+![project Logo](/CypressProjectLogo.png)
+
 # Cypress E2E testing with Azure CI/CD pipeline 
 This is a project which you can use to start your E2E testing with Cypress by azure CI/CD.
 
 - Parallel execution
-- Cross Browser Testing
-Cypress Demo
+- Cross Browser Testing (Using Chrome,FireFox & Edge)
 
-###Cypress version : 4.5.0
+### Cypress version : 4.5.0
 
 # Installation  
 1. Create a project directory and Clone the project: 
@@ -35,14 +36,21 @@ In order to start using this project. You will have to do the following steps:
 * Under the project directory run the following npm command: `npm run cy:run:record`
 
 ### Using CLI - without modifying cypress.json:
-* Alternative command : `$(npm bin)/cypress run -b chrome -s "**/*spec.js" ,baseUrl='<app_url>',username='<username>,password='<password>'`
+
+* Alternative command : 
+`$(npm bin)/cypress run -b chrome -s "**/*spec.j,baseUrl='<app_url>',username='<username>,password='<password>'`
 
 # Test debugging:
-##Locally
+
+## Local System
+
 * During test execution locally if any test fails, screenshot with execution log will be taken for that. Screenshots will be available under the path: ```cypress-pipeline-demo/cypress/screenshots``` 
-*Junit xml reports are created under the path: ```cypress-pipeline-demo/cypress/reports``` 
+
+* Junit xml reports are created under the path: ```cypress-pipeline-demo/cypress/reports``` 
+
 * By default capturing test videos is turned off by the ```cypress.json```. If needed, can be possible to turn it on there.if enabled the you can find videos under the path:```cypress-pipeline-demo/cypress/videos``` 
-##Azure Pipeline
+
+## Azure Pipeline
 * Got to build artifacts for screenshots and videos
 
 ## Supported browsers

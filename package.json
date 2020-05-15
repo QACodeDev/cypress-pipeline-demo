@@ -4,9 +4,13 @@
   "description": "This is a poc project for cypress integration with azure pipeline",
   "main": "index.js",
   "scripts": {
-    "version": "cypress version",
-    "test": "cypress open",
-    "record": "cypress run"
+	"cy:open": "cypress open",
+    "cy:version": "cypress version",
+	"cy:run:headless": "cypress run",
+	"cy:run:chrome": "cypress run -b chrome",
+	"cy:run:firefox": "cypress run -b firefox",
+	"cy:run:edge": "cypress run -b edge",
+    "cy:run:record": "cypress run --record --key b80aa610-8ac4-4db6-a3a6-e100fa091018"
   },
   "keywords": [],
   "author": "Mohd Nazim",
