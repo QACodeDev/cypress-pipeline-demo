@@ -6,6 +6,8 @@ This is a project which you can use to start your E2E testing with Cypress by az
 - Parallel execution
 - Cross Browser Testing (Using Chrome,FireFox & Edge)
 
+Demo azure pipeline
+
 ### Cypress version : 4.5.0
 
 # Installation  
